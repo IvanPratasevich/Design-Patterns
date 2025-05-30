@@ -35,4 +35,4 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # Docs
-/Task2_Figures/docs/
+./docs/

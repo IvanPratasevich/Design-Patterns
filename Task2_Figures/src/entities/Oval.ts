@@ -10,6 +10,11 @@ export class Oval extends Shape {
     super(id);
   }
 
+  public setPoints(newPoints: Point2D[]): void {
+    this.points = newPoints;
+    this.notifyObserver();
+  }
+
   getPoints(): Point2D[] {
     return this.points;
   }
