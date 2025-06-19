@@ -1,48 +1,30 @@
 import { Product } from './products/products';
-
 import {
   ProductSorter,
   SortByName,
   SortByPrice,
 } from './strategies/strategies';
+import { AppleFactory, TechProductFactory } from './factories/factories';
 
-import {
-  FoodProductBuilder,
-  FridgeProductBuilder,
-  TechProductBuilder,
-} from './builders/builders';
-
-import {
-  FoodProductFactory,
-  FridgeProductFactory,
-  TechProductFactory,
-} from './factories/factories';
-
-const foodFactory = new FoodProductFactory();
+const appleFactory = new AppleFactory();
 const techFactory = new TechProductFactory();
-const fridgeFactory = new FridgeProductFactory();
 
-const foodBuilder = new FoodProductBuilder()
-  .setName('Apple')
-  .setPrice(1)
-  .setCalories(52);
-const techBuilder = new TechProductBuilder()
-  .setName('Laptop')
-  .setPrice(1000)
-  .setWarranty(2);
+const greenApple = appleFactory.create('Green Apple');
+const redApple = appleFactory.create('Red Apple');
+const orangeApple = appleFactory.create('Yellow Apple');
 
-const fridgeBuilder = new FridgeProductBuilder()
-  .setName('Samsung Fridge')
-  .setPrice(500)
-  .setVolume(300)
-  .setHasFreezer(true)
-  .setEnergyClass('A++');
+const laptop = techFactory.create('Laptop');
+const fridge = techFactory.create('Fridge');
+const smartphone = techFactory.create('Smartphone');
 
-const apple = foodFactory.createProduct(foodBuilder);
-const laptop = techFactory.createProduct(techBuilder);
-const fridge = fridgeFactory.createProduct(fridgeBuilder);
-
-const products: Product[] = [laptop, apple, fridge];
+const products: Product[] = [
+  laptop,
+  greenApple,
+  fridge,
+  redApple,
+  orangeApple,
+  smartphone,
+];
 
 const sorter = new ProductSorter(new SortByName());
 console.log('sorted by name:');

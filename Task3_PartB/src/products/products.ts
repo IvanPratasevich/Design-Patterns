@@ -19,22 +19,19 @@ export class TechProduct implements Product {
   constructor(
     public name: string,
     public price: number,
-    public warranty: number,
+    public warranty?: number,
+    public volume?: number,
+    public hasFreezer?: boolean,
+    public energyClass?: string,
   ) {}
-  getInfo() {
-    return `${this.name}: $${this.price}, ${this.warranty} years warranty`;
-  }
-}
 
-export class FridgeProduct implements Product {
-  constructor(
-    public name: string,
-    public price: number,
-    public volume: number,
-    public hasFreezer: boolean,
-    public energyClass: string,
-  ) {}
   getInfo() {
-    return `${this.name}: $${this.price}, ${this.volume}L, Freezer: ${this.hasFreezer ? 'Yes' : 'No'}, Energy: ${this.energyClass}`;
+    return (
+      `${this.name}: $${this.price}, ` +
+      `${this.warranty ? `${this.warranty} years warranty, ` : ''}` +
+      `${this.volume ? `${this.volume}L, ` : ''}` +
+      `${this.hasFreezer !== undefined ? `Freezer: ${this.hasFreezer ? 'Yes' : 'No'}, ` : ''}` +
+      `${this.energyClass ? `Energy: ${this.energyClass}` : ''}`
+    );
   }
 }
