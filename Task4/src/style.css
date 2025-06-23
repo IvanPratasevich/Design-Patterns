@@ -1,0 +1,130 @@
+:root {
+  --primary-color: #3273dc;
+  --background-color: #ffffff;
+  --text-color: #4a4a4a;
+  --card-background: #f5f5f5;
+  --border-color: #dbdbdb;
+  --completed-color: #48c774;
+  --in-progress-color: #ffdd57;
+  --todo-color: #b5b5b5;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 20px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+body.dark-theme {
+  --primary-color: #5e96eb;
+  --background-color: #1a1a1a;
+  --text-color: #ffffff;
+  --card-background: #2c2c2c;
+  --border-color: #444;
+  --completed-color: #3da35a;
+  --in-progress-color: #d4b73a;
+  --todo-color: #777777;
+}
+
+.task-item {
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background-color: var(--card-background);
+  border: 3px solid var(--todo-color);
+  transition: all 0.3s;
+}
+
+.task-item.completed {
+  border: 3px solid var(--completed-color);
+}
+
+.task-item.in-progress {
+  border: 3px solid var(--in-progress-color);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.task-description {
+  padding: 0 15px 15px;
+}
+
+.filter-container {
+  margin-bottom: 20px;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+/* .priority-high {
+}
+
+.priority-medium {
+} */
+
+body.dark-theme .box {
+  background-color: var(--card-background);
+  color: white;
+}
+
+body.dark-theme
+  .button:not(.is-primary):not(.is-success):not(.is-danger):not(.is-warning):not(.is-info) {
+  background-color: #363636;
+  color: #f5f5f5;
+}
+
+body.dark-theme .dropdown-content {
+  background-color: #363636;
+}
+
+body.dark-theme .dropdown-item {
+  color: #f5f5f5;
+}
+
+body.dark-theme .dropdown-item:hover {
+  background-color: #4a4a4a;
+}
+
+body.dark-theme .title,
+body.dark-theme .label,
+body.dark-theme .input,
+body.dark-theme .textarea,
+body.dark-theme .select select,
+body.dark-theme .task-description,
+body.dark-theme .has-text-grey {
+  color: white !important;
+}
+
+body.dark-theme .input,
+body.dark-theme .textarea,
+body.dark-theme .select select {
+  background-color: #363636;
+  border-color: #555;
+}
+
+body.dark-theme .input::placeholder,
+body.dark-theme .textarea::placeholder {
+  color: #aaa;
+}
+
+.task-meta .tag {
+  font-weight: 600;
+}
